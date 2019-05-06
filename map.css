@@ -1,0 +1,881 @@
+body {
+	margin: 0;
+	padding: 0;
+}
+
+#map {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	width: 100vw;	/* 100% of viewport width */
+	height: 100vh;	/* 100% of viewport height */
+}
+
+/* Modal styles */
+#screen {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    opacity: 0.8;
+    z-index: 6;
+    display: none;
+}
+
+.modal {
+    display: none;
+    width: 50vw;
+    height: 55vh;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom:0;
+    left: 0;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.8);
+    z-index: 7;
+    padding: 35px;
+    font-family: Book Antiqua;
+}
+
+.modal>.modal-title {
+    color: deeppink;
+}
+
+.modal>.modal-body{
+   
+}
+
+.modal>.contact-information{
+    color: grey;
+    font-size: 12px;
+}
+
+.modal>.close-button {
+    color: #cccccc;
+    position:absolute;
+    right: 0;
+    top: 0;
+    margin: 10px;
+    background: none !important;
+    border: none !important;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.modal>.close-button:hover {
+    color: #bbbbbb !important;
+}
+
+
+.button-default {
+    background-color: white;
+/*    border-radius: 10px;*/
+    color: deeppink;
+    padding: 8px 30px;
+    font-family: Book Antiqua;
+    cursor: pointer;
+    margin: 20px;
+    border: none;
+    font-size: 15px;
+    z-index: 1;
+    opacity: 0.9;
+}
+
+.button-default:hover {
+    background-color: white;
+    color: white;
+}
+
+.button-default:focus {
+    color: white;
+    background-color: deeppink;
+}
+
+.button-default:before {
+  -webkit-transition: 0.5s all ease;
+  transition: 0.5s all ease;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  right: 50%;
+  bottom: 0;
+  opacity: 0.9;
+  content: '';
+  background-color: deeppink;
+  z-index: -1;
+}
+
+.button-default:hover:before {
+  left: 0;
+  right: 0;
+  opacity: 1;
+}
+
+.button-default:focus:before {
+  left: 0;
+  right: 0;
+  opacity: 1;
+}
+
+#about {
+    position: absolute;
+    left: 50;
+    top: 0;
+}
+
+.map-overlay {
+    position: absolute;
+    background:rgba(255, 255, 255, 0.8);
+    margin: 10px;
+    font-family: Book Antiqua;
+    border-radius: 10px;
+    padding: 15px;
+    z-index: 1;
+}
+
+
+.legend-key {
+    display: inline-block;
+    border-radius:100%;
+    width:10px;
+    height: 10px;
+    margin-right: 5px;
+}
+#info-window {
+    top: 0;
+    right: 0;
+    width: 30vw;
+}
+
+
+/*#slidercontainer {
+        top: 140px;
+        left: 30px;
+        position: fixed;
+        width: 65%;
+        z-index: 5;
+    }*/
+
+#timeslider {
+        top: 170px;
+        left: 52px;
+        position: fixed;
+        width: 185px;
+        z-index: 4;
+}
+
+#timeslider2 {
+        top: 263px;
+        left: 52px;
+        position: fixed;
+        width: 185px;
+        z-index: 4;
+}
+
+#timeslider3 {
+        top: 358px;
+        left: 52px;
+        position: fixed;
+        width: 185px;
+        z-index: 4;
+}
+
+#timeslider4 {
+        top: 452px;
+        left: 52px;
+        position: fixed;
+        width: 185px;
+        z-index: 4;
+}
+
+ .slider-title{
+        color:#FFFFFF;
+        position: fixed;
+        left: 15px;
+        width: 260px;
+        top: 74px;
+        font-size: 14px;
+        text-align: center;
+        font-family: Book Antiqua;
+        font-weight: lighter;
+        line-height: 5px;
+        border-bottom: 1px dotted deeppink;
+    }
+    
+    .slider {
+        -webkit-appearance: none;
+/*        left: 25px;
+        width: 180px;*/
+        height: 9px;
+        background: white;
+        outline: none;
+        opacity: 0.6;
+        -webkit-transition: .2s;
+        transition: opacity .2s;
+    }
+
+    .slider:hover {
+        opacity: 1;
+    }
+
+    .slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 7px;
+        height: 20px;
+        background: #ff1aa3;
+        cursor: pointer;
+    }
+
+    .slider::-moz-range-thumb {
+        width: 50px;
+        height: 25px;
+        background: #4CAF50;
+        cursor: pointer;
+    }
+
+#timeline-labels .domain, #timeline-labels .tick>line { display: none; }
+    #timeline-labels text { 
+        fill: #FFFFFF; 
+        opacity: 0.8;
+        font-size: 8px;
+        font-family: 'Book Antiqua', sans-serif;
+    }
+
+.fade{
+    opacity: 0.7;
+    width: 400px;
+    height: 100vh;
+    z-index: 0;
+    position: absolute;
+    background: -webkit-linear-gradient(
+        0.5turn,
+        rgba(255, 255, 255, 0) 0%,
+        #202020 100%
+    ); 
+/*    background-image: -moz-linear-gradient(
+        rgba(255, 255, 255, 0) 0%,
+        #202020 100%
+    );*/
+/*    background-image: -o-linear-gradient(
+        rgba(255, 255, 255, 0) 0%,
+        #202020 100%
+    );*/
+/*    background-image: linear-gradient(
+        rgba(255, 255, 255, 0) 0%,
+        #202020 100%
+    );*/
+/*    background-image: -ms-linear-gradient(
+        rgba(255, 255, 255, 0) 0%,
+        #202020 100%
+    );*/
+}
+
+
+#layers-control {
+    position: absolute;
+    z-index: 1;
+    top: 135px;
+    left: 36px;
+/*    margin: 20px;*/
+    width: 200px;
+    font-family: Book Antiqua;
+    padding: 3px 10px;
+}
+
+#layers-control a {
+    font-size: 13px;
+    color: #cccc;
+    display: block;
+    margin: 0 0 70px 0;
+    padding: 0;
+    padding: 3px;
+    text-decoration: none;
+/*    border-bottom: 1px solid rgba(0,0,0,0.25);*/
+    text-align: center;
+    font-family: Book Antiqua;
+/*    border-radius: 5px;*/
+}
+
+#layers-control a:last-child {
+    border: none;
+}
+
+#layers-control a:hover {
+    border: 1px solid #8f0056;
+}
+
+#layers-control a.active {
+    border: 1px solid #ff1aa3;
+    color: #ffffff;
+    opacity: 0.9;
+}
+
+#layers-control a.active:hover {
+    border: 1px solid #8f0056;}
+
+
+
+.slider-title2{
+        color:#FFFFFF;
+        position: fixed;
+        left: 48px;
+        width: 200px;
+        text-align: center;
+        top: 510px;
+        font-size: 15px;
+        font-family: Book Antiqua;
+        font-weight: lighter;
+        border-bottom: 1px dotted deeppink;
+    }
+
+#layers-control-2 {
+    position: absolute;
+    z-index: 1;
+    top: 560px;
+    left: 36px;
+/*    margin: 20px;*/
+    width: 200px;
+    font-family: Book Antiqua;
+/*    background-color: white;*/
+    padding: 3px 10px;
+}
+
+#layers-control-2 a {
+    font-size: 13px;
+    color: #cccc;
+    display: block;
+    margin: 0 0 10px 0;
+    padding: 0;
+    padding: 3px;
+    text-decoration: none;
+/*    border-bottom: 1px solid rgba(0,0,0,0.25);*/
+    text-align: center;
+    font-family: Book Antiqua;
+/*    border-radius: 5px;*/
+}
+
+#layers-control-2 a:last-child {
+    border: none;
+}
+
+#layers-control-2 a:hover {
+    border: 1px solid #007575;
+}
+
+#layers-control-2 a.active {
+    border: 1px solid white;
+    color: #ffffff;
+    opacity: 0.8;
+}
+
+#layers-control-2 a.active:hover {
+    border: 1px solid #9ffefe;}
+
+
+.range-labels{
+/*    margin: 18px -41px 0;*/
+    padding: 0;
+    list-style: none;
+    z-index: 3;
+/*    left: 30px;*/
+    top: 170px;
+    position: relative;
+    float: left;
+    width: 290px;
+    word-spacing: 28px;
+    text-align: center;
+    color: white;
+    opacity: 0.9;
+    font-size: 10px;
+    cursor: pointer;
+    font-family: Book Antiqua;
+    font-style: italic;
+}
+
+.range-labels2{
+    padding: 0;
+    list-style: none;
+    z-index: 3;
+    top: 277px;
+    position: absolute;
+    width: 290px;
+    word-spacing: 28px;
+    text-align: center;
+    color: white;
+    opacity: 0.9;
+    font-size: 10px;
+    cursor: pointer;
+    font-family: Book Antiqua;
+    font-style: italic;
+    margin: 0;
+}
+
+.range-labels3{
+    padding: 0;
+    list-style: none;
+    z-index: 3;
+    top: 373px;
+    position: absolute;
+    width: 290px;
+    word-spacing: 28px;
+    text-align: center;
+    color: white;
+    opacity: 0.9;
+    font-size: 10px;
+    cursor: pointer;
+    font-family: Book Antiqua;
+    font-style: italic;
+    margin: 0;
+}
+
+.range-labels4{
+    padding: 0;
+    list-style: none;
+    z-index: 3;
+    top: 467px;
+    position: absolute;
+    float: left;
+    width: 290px;
+    word-spacing: 28px;
+    text-align: center;
+    color: white;
+    opacity: 0.9;
+    font-size: 10px;
+    cursor: pointer;
+    font-family: Book Antiqua;
+    font-style: italic;
+    margin: 0;
+}
+
+.range-labels5{
+    padding: 0;
+    list-style: none;
+    z-index: 3;
+    top: 81vh;
+    position: absolute;
+    width: 290px;
+    word-spacing: 28px;
+    text-align: center;
+    color: white;
+    opacity: 0.55;
+    font-size: 10px;
+    cursor: pointer;
+    font-family: Book Antiqua;
+    font-style: italic;
+    margin: 0;
+}
+
+
+#legend{
+    opacity: 0.75;
+    z-index: 5;
+    height: 10px;
+    left: 52px;
+    top: 80vh;
+    width: 185px;
+        position: absolute;
+    background: -webkit-linear-gradient(
+        1.0turn, #fecdea, #ff1aa3, #8f0056, #000000)
+}
+
+.explaination{
+    font-size: 13px;
+    font-weight: lighter;
+    padding: 5px 0 0 0;
+    color: white;
+    width: 200px;
+}
+
+
+h6{
+  font-size: 14px;
+  margin-top: 0em;
+  margin-bottom: 0em;
+  font-weight: lighter;
+}
+
+.tooltip1 {
+  position: absolute;
+  top: 170px;
+  left:250px;
+  display: inline-block;
+  color: #fe94d4;
+  background-color: rgba(255, 255, 255, 0.6);
+  padding: 1 4 1 4;
+  font-size: 10px;
+  border-radius: 100%;
+}
+
+
+/* Tooltip text */
+.tooltip1 .tooltiptext1 {
+  visibility: hidden;
+  width: 200px;
+  background-color: rgba(255, 255, 255, 0.6);
+  font-size: 15px;
+  color: #505050;
+  text-align: center;
+  padding: 5px 3;
+
+  /* Position the tooltip text */
+  position: absolute;
+  z-index: 1;
+  bottom: 0%;
+  left: 50%;
+  margin-left: 20px;
+
+  /* Fade in tooltip */
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip1:hover .tooltiptext1 {
+  visibility: visible;
+  opacity: 1;
+}
+
+
+.tooltip2 {
+  position: absolute;
+  top: 263px;
+  left:250px;
+  display: inline-block;
+  color: #fe94d4;
+  background-color: rgba(255, 255, 255, 0.6);
+  padding: 1 4 1 4;
+  font-size: 10px;
+  border-radius: 100%;
+}
+
+
+/* Tooltip text */
+.tooltip2 .tooltiptext2 {
+  visibility: hidden;
+  width: 200px;
+  background-color: rgba(255, 255, 255, 0.6);
+  font-size: 15px;
+  color: #505050;
+  text-align: center;
+  padding: 5px 3;
+
+  /* Position the tooltip text */
+  position: absolute;
+  z-index: 1;
+  bottom: 0%;
+  left: 50%;
+  margin-left: 20px;
+
+  /* Fade in tooltip */
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip2:hover .tooltiptext2 {
+  visibility: visible;
+  opacity: 1;
+}
+
+
+.tooltip3 {
+  position: absolute;
+  top: 359px;
+  left:250px;
+  display: inline-block;
+  color: #fe94d4;
+  background-color: rgba(255, 255, 255, 0.6);
+  padding: 1 4 1 4;
+  font-size: 10px;
+  border-radius: 100%;
+}
+
+
+/* Tooltip text */
+.tooltip3 .tooltiptext3 {
+  visibility: hidden;
+  width: 200px;
+  background-color: rgba(255, 255, 255, 0.6);
+  font-size: 15px;
+  color: #505050;
+  text-align: center;
+  padding: 5px 3;
+
+  /* Position the tooltip text */
+  position: absolute;
+  z-index: 1;
+  bottom: 0%;
+  left: 50%;
+  margin-left: 20px;
+
+  /* Fade in tooltip */
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip3:hover .tooltiptext3 {
+  visibility: visible;
+  opacity: 1;
+}
+
+
+.tooltip4 {
+  position: absolute;
+  top: 453px;
+  left:250px;
+  display: inline-block;
+  color: #fe94d4;
+  background-color: rgba(255, 255, 255, 0.6);
+  padding: 1 4 1 4;
+  font-size: 10px;
+  border-radius: 100%;
+}
+
+
+/* Tooltip text */
+.tooltip4 .tooltiptext4 {
+  visibility: hidden;
+  width: 200px;
+  background-color: rgba(255, 255, 255, 0.6);
+  font-size: 15px;
+  color: #505050;
+  text-align: center;
+  padding: 5px 3;
+
+  /* Position the tooltip text */
+  position: absolute;
+  z-index: 1;
+  bottom: 0%;
+  left: 50%;
+  margin-left: 20px;
+
+  /* Fade in tooltip */
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip4:hover .tooltiptext4 {
+  visibility: visible;
+  opacity: 1;
+}
+
+
+
+.tooltip5 {
+  position: absolute;
+  top: 567px;
+  left:250px;
+  display: inline-block;
+  color: #fe94d4;
+  background-color: rgba(255, 255, 255, 0.6);
+  padding: 1 4 1 4;
+  font-size: 10px;
+  border-radius: 100%;
+}
+
+
+/* Tooltip text */
+.tooltip5 .tooltiptext5 {
+  visibility: hidden;
+  width: 200px;
+  background-color: rgba(255, 255, 255, 0.6);
+  font-size: 15px;
+  color: #505050;
+  text-align: center;
+  padding: 5px 3;
+
+  /* Position the tooltip text */
+  position: absolute;
+  z-index: 1;
+  bottom: 0%;
+  left: 50%;
+  margin-left: 20px;
+
+  /* Fade in tooltip */
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip5:hover .tooltiptext5 {
+  visibility: visible;
+  opacity: 1;
+}
+
+.tooltip6 {
+  position: absolute;
+  top: 604px;
+  left:250px;
+  display: inline-block;
+  color: #fe94d4;
+  background-color: rgba(255, 255, 255, 0.6);
+  padding: 1 4 1 4;
+  font-size: 10px;
+  border-radius: 100%;
+}
+
+
+/* Tooltip text */
+.tooltip6 .tooltiptext6 {
+  visibility: hidden;
+  width: 200px;
+  background-color: rgba(255, 255, 255, 0.6);
+  font-size: 15px;
+  color: #505050;
+  text-align: center;
+  padding: 5px 3;
+
+  /* Position the tooltip text */
+  position: absolute;
+  z-index: 1;
+  bottom: 0%;
+  left: 50%;
+  margin-left: 20px;
+
+  /* Fade in tooltip */
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+/* Tooltip arrow */
+/*.tooltip6 .tooltiptext6:after {
+  content: "";
+  position: absolute; 
+  top: 100%;
+  left: 50%;
+  margin-left: 10px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}*/
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip6:hover .tooltiptext6 {
+  visibility: visible;
+  opacity: 1;
+}
+
+.btn {
+  position: absolute;
+  border: 1.5px solid white;
+  background-color: #ffffff00;
+  color: black;
+  padding: 4 12 4 15;
+  font-size: 12px;
+  cursor: pointer;
+  z-index: 10;
+  font-weight: lighter;
+  left: 70;
+  top: 90vh;
+  width: 150;
+}
+
+/* Green */
+.fake {
+  border-color: white;
+  color: deeppink;
+}
+
+.fake:hover {
+  background-color: white;
+  opacity: 0.9;
+  color: deeppink;
+}
+
+button {
+    font-family: 'Book Antiqua', sans-serif;
+    font-weight: 900;
+    font-style: italic;
+    text-transform: uppercase;
+    padding: 0;
+}
+
+#reset {
+   position: absolute;
+  border: 1.5px solid deeppink;
+  background-color: #ffffff00;
+  color: deeppink;
+  padding: 5 12 5 12;
+  font-size: 12px;
+  cursor: pointer;
+  z-index: 10;
+  font-weight: lighter;
+  width: 150;
+}
+
+.resett{
+    border-color: deeppink;
+    color: deeppink;
+    right: 80;
+    top: 3vh;
+}
+
+#reset:hover {
+    background-color: deeppink;
+    color: white;
+}
+
+
+#btnn {
+   position: absolute;
+  border: 1.5px solid deeppink;
+  background-color: #ffffff00;
+  color: deeppink;
+  padding: 5 12 5 12;
+  font-size: 12px;
+  cursor: pointer;
+  z-index: 10;
+  font-weight: lighter;
+  width: 150;
+}
+
+.fake2 {
+  border-color: deeppink;
+  color: deeppink;
+  right: 50;
+  top: 3vh;
+}
+
+#btnn:hover {
+  background-color: deeppink;
+  color: white;
+}
+
+.upload {
+    display: none;
+    width: 40vw;
+    height: 15vh;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom:0;
+    left: 0;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.7);
+    z-index: 7;
+    padding: 30px;
+    font-family: Book Antiqua;
+}
+
+.upload>.close-button {
+    color: #cccccc;
+    position:absolute;
+    right: 0;
+    top: 0;
+    margin: 10px;
+    background: none !important;
+    border: none !important;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.upload>.close-button:hover {
+    color: #bbbbbb !important;
+}

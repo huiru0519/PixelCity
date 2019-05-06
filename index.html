@@ -1,0 +1,100 @@
+<html>
+
+<head>
+<title>My Mapbox GL JS Map</title>
+
+<script src="https://d3js.org/d3.v4.min.js"></script>
+
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.js'></script>
+
+<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.css' rel='stylesheet' />
+
+<link rel="stylesheet" href="map.css">
+
+</head>
+
+<body>
+<button id="about" class='button-default'>PIXEL CITY</button>
+<div id="map"></div>
+<div class='modal'>
+    <h2 class='modal-title'>PIXEL CITY - LAR7020 FOUNDATION STUDIO IV</h2>
+    <div class='modal-body'>
+      <p>We hope to bridge the information gap between different groups, while maintaining recognizable group identity. Every unique individual matters, but the merger of discrete individuals composes a new and better urbanity—the Pixel City. In the Pixel City, a framework for future development encourages mixing of groups and composition of shared public space. We raise the argument that it is the citizens and their activities, rather than the built forms, which truly form the character of a city and its shared living experience. Under this framework, the city will be a vehicle to embrace all interwoven cultures, the public and the public space. 
+</p>
+      <p>The city has different attributes based on the conditions acting upon it. Socio-ecological backgrounds differ, ‘pioneer activations’ differ, agencies differ, and embedded programs differ on every site. At the same time, these factors work together to depict an integrated and complicated urban landscape.  Thus our team, as landscape architects, choose to engage in landscapes that are flexible and responsive, and which utilize activating, transforming, and composing operations. We are always making—always proposing temporary, experimental landscapes which work to optimize and incorporate each piece of land and create countless living moments. The Pixel City embraces this mixing and constantly evolving future, invites change, and honors differences. It is a hybrid of people and of program, and can dynamically shift to accommodate many different future scenarios.
+</p>    
+    </div>
+      <h4>Every pixel will hold a unique, momentary version of life. When merging, we see the future.
+</h4>
+      <div class='contact-information'><p>For More Information Please Contact</p>
+      <p>Huiru Shen hs5ew@virginia.edu | Xiaowei Lin xl5hk@virginia.edu | Yao Tong yt2kc@virginia.edu</p></div>
+    <button class='close-button'>&times;</button>
+</div>
+
+<div class='fade'></div>
+
+<div id="slidercontainer">
+  <div class='slider-title'><p>Filter  Right  Range  of  Data</p>
+                            <p>Click on Title Buttons to Turn On/Off</p>
+  </div>
+      <input type="range" min="0" max="1380" value="100" step="1" class="slider" id="timeslider">
+      <h5 class="range-labels">0 1 2 3 4 5</h5>
+      <input type="range" min="368" max="4511" value="700" step="1" class="slider" id="timeslider2">
+      <h5 class="range-labels2">0 1 2 3 4 5</h5>
+      <input type="range" min="990" max="4620" value="1300" step="1" class="slider" id="timeslider3">
+      <h5 class="range-labels3">0 1 2 3 4 5</h5>
+      <input type="range" min="0" max="10000" value="800" step="10" class="slider" id="timeslider4">
+      <h5 class="range-labels4">0 1 2 3 4 5</h5>
+  <h4 class='slider-title2'> Future Scenario</h4>
+</div>
+
+  <div id="legend">
+    <h5 class="explaination">Levels of data are shown on the map from low to high by color gradients</h5>
+  </div>
+  <h5 class="range-labels5">0 1 2 3 4 5</h5>
+    <!-- <div id="timeline-labels"></div> -->
+
+ <button id="reset" class='resett'><i class="fas fa-redo"></i></i>&nbsp;Reset map</button>
+
+<div id='layers-control'></div>
+
+<div id='layers-control-2'></div>
+
+<div class="tooltip1">?
+    <span class="tooltiptext1"> <h6>Number of Chinese immigrants in every census tract</h6> <h6>Range: 0-1380</h6> </span>  
+</div>
+
+<div class="tooltip2">?
+    <span class="tooltiptext2"> <h6>Percentage of Other Group immigrants in every census tract</h6> <h6>Range: 3%-45%</h6> </span>  
+</div>
+
+<div class="tooltip3">?
+    <span class="tooltiptext3"> <h6>Possibility of risks caused by external/exogenous shocks to system of production, distribution and consumption.</h6> <h6>Range: 10%-46%</h6> </span>  
+</div>
+
+<div class="tooltip4">?
+    <span class="tooltiptext4"> <h6>Percentage of citizens DON'T own vehicles</h6> <h6>Range: 0%-100%</h6> </span>  
+</div>
+
+<div class="tooltip5">?
+    <span class="tooltiptext5"> <h6>Location of flooding zone</h6> </span>  
+</div>
+
+<div class="tooltip6">?
+    <span class="tooltiptext6"> <h6>Proportion of citizens over 60 years old</h6> 
+</div>
+
+<!-- <button class="btn fake">NEXT ></button>
+<button id="btnn" class="fake2">UPLOAD MAP</button> -->
+<div class="upload">
+  <button class='close-button'>&times;</button>
+</div>
+
+</body>
+<script src="map.js"></script>
+</html>
